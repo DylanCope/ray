@@ -201,6 +201,8 @@ class ParallelPettingZooEnv(MultiAgentEnv):
 
         # Get first action space, assuming all agents have equal space
         self.action_space = self.par_env.action_space(self.par_env.agents[0])
+        
+        self._agent_ids = self.par_env.agents
 
         assert all(
             self.par_env.observation_space(agent) == self.observation_space
